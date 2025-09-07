@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>广中医检验科服务导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a6dcc 0%, #0d4a9e 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .logo {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            color: white;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .apps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 减小模块间距 */
+            margin-top: 20px;
+        }
+        
+        .app-btn {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .app-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .app-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .app-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+        
+        .app-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .app-btn:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .app-btn:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .app-btn:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .app-btn:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        
+        .icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 22px;
+            font-size: 30px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .manual .icon {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+        }
+        
+        .patient-guide .icon {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+        }
+        
+        .feedback .icon {
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+        }
+        
+        .wechat .icon {
+            background: linear-gradient(135deg, #09BB07 0%, #2BAE66 100%);
+        }
+        
+        .text {
+            flex: 1;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title {
+            font-size: 21px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        .desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .arrow {
+            width: 26px;
+            height: 26px;
+            color: #999;
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .app-btn {
+                padding: 18px;
+            }
+            
+            .icon {
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+                margin-right: 15px;
+            }
+            
+            .title {
+                font-size: 18px;
+            }
+            
+            .desc {
+                font-size: 14px;
+            }
+            
+            .apps {
+                gap: 12px; /* 在移动设备上进一步减小间距 */
+            }
+        }
+        
+        /* 微信内置浏览器专用优化 */
+        .wechat-optimized {
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        
+        /* 装饰元素 */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid rgba(255,255,255,0.1);
+            bottom: 20%;
+            left: 5%;
+            transform: rotate(45deg);
+        }
+        
+        /* 波纹效果 */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+        }
+        
+        @keyframes ripple {
+            to {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="wechat-optimized">
+    <!-- 装饰元素 -->
+    <div class="decoration triangle"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-flask"></i>
+            </div>
+            <h1>广中医检验科服务导航</h1>
+            <p class="subtitle">专业检验服务指引，保障患者健康权益</p>
+        </div>
+        
+        <div class="apps">
+            <!-- 临床采集手册（医护） -->
+            <a href="https://www.kdocs.cn/etapps/query/q/IGV70GC5  " class="app-btn manual" id="manualBtn">
+                <div class="icon">
+                    <i class="fas fa-book-medical"></i>
+                </div>
+                <div class="text">
+                    <div class="title">临床采集手册（医护）</div>
+                    <div class="desc">标本采集规范与操作注意事项</div>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+            
+            <!-- 患者检验须知手册 -->
+            <a href="#" class="app-btn patient-guide" id="patientGuideBtn">
+                <div class="icon">
+                    <i class="fas fa-file-medical-alt"></i>
+                </div>
+                <div class="text">
+                    <div class="title">患者检验须知手册</div>
+                    <div class="desc">检验项目介绍与标本留取指引</div>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+            
+            <!-- 医院公众号入口 -->
+            <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2NTA2OTU1OA==" class="app-btn wechat" id="wechatBtn">
+                <div class="icon">
+                    <i class="fab fa-weixin"></i>
+                </div>
+                <div class="text">
+                    <div class="title">医院公众号入口</div>
+                    <div class="desc">关注查询检验报告与医院资讯</div>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+            
+            <!-- 检验服务反馈入口 -->
+            <a href="https://f.wps.cn/g/CIuGz4q1 " class="app-btn feedback" id="feedbackBtn">
+                <div class="icon">
+                    <i class="fas fa-comment-medical"></i>
+                </div>
+                <div class="text">
+                    <div class="title">检验服务反馈入口</div>
+                    <div class="desc">意见反馈与投诉建议通道</div>
+                </div>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+        
+        <footer>
+            © 2025 广西中医药大学第一附属医院检验科智能服务系统
+        </footer>
+    </div>
+
+    <script>
+        // 微信内置浏览器专用优化
+        if (typeof WeixinJSBridge !== 'undefined') {
+            // 禁用微信分享菜单
+            WeixinJSBridge.call('hideOptionMenu');
+        }
+        
+        // 优化链接点击体验
+        document.getElementById('manualBtn').addEventListener('click', function(e) {
+            window.location.href = this.href;
+            e.preventDefault();
+        });
+        
+        document.getElementById('patientGuideBtn').addEventListener('click', function(e) {
+            alert('患者检验须知手册功能即将上线，敬请期待！');
+            e.preventDefault();
+        });
+        
+        document.getElementById('feedbackBtn').addEventListener('click', function(e) {
+            window.location.href = this.href;
+            e.preventDefault();
+        });
+        
+        // 医院公众号入口点击事件 - 直接跳转到链接
+        document.getElementById('wechatBtn').addEventListener('click', function(e) {
+            window.location.href = this.href;
+            e.preventDefault();
+        });
+        
+        // 禁用长按菜单
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // 添加悬停效果增强
+        const buttons = document.querySelectorAll('.app-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 12px 25px rgba(0,0,0,0.25)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+            });
+        });
+        
+        // 添加点击波纹效果
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+    </script>
+</body>
+</html>
