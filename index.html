@@ -73,7 +73,7 @@
         .apps {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* 减小模块间距 */
+            gap: 15px;
             margin-top: 20px;
         }
         
@@ -259,7 +259,7 @@
             }
             
             .apps {
-                gap: 12px; /* 在移动设备上进一步减小间距 */
+                gap: 12px;
             }
         }
         
@@ -286,6 +286,77 @@
             bottom: 20%;
             left: 5%;
             transform: rotate(45deg);
+        }
+        
+        /* 二维码弹窗样式 */
+        .qrcode-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .qrcode-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 85%;
+            max-width: 320px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .qrcode-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #999;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .qrcode-image {
+            width: 100%;
+            margin: 15px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qrcode-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .qrcode-guide {
+            color: #333;
+            font-size: 16px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+        
+        .qrcode-tip {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .qrcode-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
         }
         
         /* 波纹效果 */
@@ -320,13 +391,13 @@
         
         <div class="apps">
             <!-- 临床采集手册（医护） -->
-            <a href="https://www.kdocs.cn/etapps/query/q/IGV70GC5  " class="app-btn manual" id="manualBtn">
+            <a href="https://www.kdocs.cn/etapps/query/q/K2BIfR3M  " class="app-btn manual" id="manualBtn">
                 <div class="icon">
                     <i class="fas fa-book-medical"></i>
                 </div>
                 <div class="text">
                     <div class="title">临床采集手册（医护）</div>
-                    <div class="desc">标本采集规范与注意事项</div>
+                    <div class="desc">标本采集规范与操作注意事项</div>
                 </div>
                 <div class="arrow">
                     <i class="fas fa-chevron-right"></i>
@@ -334,32 +405,32 @@
             </a>
             
             <!-- 患者检验须知手册 -->
-            <a href="#" class="app-btn patient-guide" id="patientGuideBtn">
+            <a href="https://www.kdocs.cn/etapps/query/q/oI5UPBpK" class="app-btn patient-guide" id="patientGuideBtn">
                 <div class="icon">
                     <i class="fas fa-file-medical-alt"></i>
                 </div>
                 <div class="text">
                     <div class="title">患者检验须知手册</div>
-                    <div class="desc">项目介绍与标本留取指引</div>
+                    <div class="desc">检验项目介绍与标本留取指引</div>
                 </div>
                 <div class="arrow">
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </a>
             
-            <!-- 医院公众号入口 -->
-            <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU2NTA2OTU1OA==" class="app-btn wechat" id="wechatBtn">
+            <!-- 医院公众号入口 - 修改为触发二维码弹窗 -->
+            <div class="app-btn wechat" id="wechatBtn">
                 <div class="icon">
                     <i class="fab fa-weixin"></i>
                 </div>
                 <div class="text">
                     <div class="title">医院公众号入口</div>
-                    <div class="desc">查询检验报告与医院资讯</div>
+                    <div class="desc">长按识别二维码关注公众号</div>
                 </div>
                 <div class="arrow">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-qrcode"></i>
                 </div>
-            </a>
+            </div>
             
             <!-- 检验服务反馈入口 -->
             <a href="https://f.wps.cn/g/CIuGz4q1 " class="app-btn feedback" id="feedbackBtn">
@@ -377,8 +448,24 @@
         </div>
         
         <footer>
-            © 2025 广西中医药大学第一附属医院检验科智能服务系统
+            
         </footer>
+    </div>
+
+    <!-- 二维码弹窗 -->
+    <div class="qrcode-modal" id="qrcodeModal">
+        <div class="qrcode-content">
+            <button class="qrcode-close" id="closeQrcode">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="qrcode-title">关注医院公众号</div>
+            <div class="qrcode-image">
+                <!-- 请替换为实际的公众号二维码PNG图片 -->
+                <img src="gh_qr.png " alt="医院公众号二维码">
+            </div>
+            <div class="qrcode-guide">长按二维码识别关注</div>
+            <div class="qrcode-tip">关注后可查询检验报告与医院最新资讯</div>
+        </div>
     </div>
 
     <script>
@@ -388,6 +475,11 @@
             WeixinJSBridge.call('hideOptionMenu');
         }
         
+        // 获取元素
+        const wechatBtn = document.getElementById('wechatBtn');
+        const qrcodeModal = document.getElementById('qrcodeModal');
+        const closeQrcode = document.getElementById('closeQrcode');
+        
         // 优化链接点击体验
         document.getElementById('manualBtn').addEventListener('click', function(e) {
             window.location.href = this.href;
@@ -395,7 +487,7 @@
         });
         
         document.getElementById('patientGuideBtn').addEventListener('click', function(e) {
-            alert('患者检验须知手册功能即将上线，敬请期待！');
+            window.location.href = this.href;
             e.preventDefault();
         });
         
@@ -404,10 +496,21 @@
             e.preventDefault();
         });
         
-        // 医院公众号入口点击事件 - 直接跳转到链接
-        document.getElementById('wechatBtn').addEventListener('click', function(e) {
-            window.location.href = this.href;
-            e.preventDefault();
+        // 显示公众号二维码
+        wechatBtn.addEventListener('click', function() {
+            qrcodeModal.style.display = 'flex';
+        });
+        
+        // 关闭二维码弹窗
+        closeQrcode.addEventListener('click', function() {
+            qrcodeModal.style.display = 'none';
+        });
+        
+        // 点击弹窗背景也可关闭
+        qrcodeModal.addEventListener('click', function(e) {
+            if (e.target === qrcodeModal) {
+                qrcodeModal.style.display = 'none';
+            }
         });
         
         // 禁用长按菜单
@@ -449,5 +552,4 @@
         });
     </script>
 </body>
-
 </html>
