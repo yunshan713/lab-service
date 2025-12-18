@@ -421,6 +421,16 @@
     <div class="decoration triangle"></div>
     
     <div class="container">
+        <div id="starTip" style="width:100%;background:#FFF9C4;color:#333;font-size:14px;text-align:center;padding:6px;border-radius:0 0 8px 8px;display:flex;align-items:center;justify-content:center;">
+    点击右上角「⋯」→ <span style="color:#1E90FF;font-size:16px;">☆</span> 收藏本页，返回微信点左上角「<span style="color:#000;font-size:16px;">☆</span> 」可直达本导航
+    <span id="closeStar" style="margin-left:8px;cursor:pointer;font-size:12px;">✕</span>
+</div>
+
+<script>
+document.getElementById('closeStar').onclick = function () {
+  document.getElementById('starTip').style.display = 'none';
+};
+</script>
         <div class="header">
             <div class="logo">
                 <i class="fas fa-flask"></i>
@@ -597,6 +607,7 @@
     </script>
 </body>
 </html>
+
 
 
 
