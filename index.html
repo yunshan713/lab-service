@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>广中医东葛检验科服务导航</title>
+    <title>GZY东葛检验知识分享</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GXL3Q94KP7"></script>
     <script>
@@ -14,406 +14,55 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a6dcc 0%, #0d4a9e 100%);
-            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-            min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 480px;
-            text-align: center;
-            animation: fadeIn 0.8s ease-out;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .header {
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        .logo {
-            width: 90px;
-            height: 90px;
-            background: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
-            transition: transform 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        h1 {
-            color: white;
-            font-size: 26px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-            margin-bottom: 8px;
-        }
-        
-        .subtitle {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 15px;
-            max-width: 300px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-        
-        .apps {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-            flex: 1;
-        }
-        
-        .app-btn {
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 18px;
-            padding: 22px;
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            animation: slideUp 0.6s ease-out;
-        }
-        
-        .app-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .app-btn:hover::before {
-            opacity: 1;
-        }
-        
-        .app-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-        }
-        
-        .app-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .app-btn:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        
-        .app-btn:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .app-btn:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        
-        .app-btn:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-        
-        .icon {
-            width: 65px;
-            height: 65px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 22px;
-            font-size: 30px;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .manual .icon {
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-        }
-        
-        .patient-guide .icon {
-            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
-        }
-        
-        .feedback .icon {
-            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
-        }
-        
-        .wechat .icon {
-            background: linear-gradient(135deg, #09BB07 0%, #2BAE66 100%);
-        }
-        
-        .text {
-            flex: 1;
-            text-align: left;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .title {
-            font-size: 21px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        
-        .desc {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        .arrow {
-            width: 26px;
-            height: 26px;
-            color: #999;
-            position: relative;
-            z-index: 2;
-        }
-        
-        footer {
-            margin-top: 30px;
-            color: rgba(255,255,255,0.8);
-            font-size: 13px;
-            padding: 15px 0;
-            position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 2px;
-        }
-        
-        /* 新增页脚信息样式 */
-        .footer-info {
-            margin-top: 5px;
-            padding: 2px 0;
-            text-align: center;
-        }
-        
-        .contact-info {
-            font-size: 14px;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .department-info {
-            font-size: 12px;
-            color: rgba(255,255,255,0.6);
-            font-weight: 300;
-        }
-        
-        /* 动画效果 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* 响应式调整 */
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .logo {
-                width: 80px;
-                height: 80px;
-            }
-            
-            h1 {
-                font-size: 22px;
-            }
-            
-            .app-btn {
-                padding: 18px;
-            }
-            
-            .icon {
-                width: 55px;
-                height: 55px;
-                font-size: 24px;
-                margin-right: 15px;
-            }
-            
-            .title {
-                font-size: 18px;
-            }
-            
-            .desc {
-                font-size: 14px;
-            }
-            
-            .apps {
-                gap: 12px;
-            }
-            
-            .contact-info {
-                font-size: 13px;
-            }
-            
-            .department-info {
-                font-size: 11px;
-            }
-        }
-        
-        /* 微信内置浏览器专用优化 */
-        .wechat-optimized {
-            -webkit-user-select: none;
-            user-select: none;
-            touch-action: manipulation;
-        }
-        
-        /* 装饰元素 */
-        .decoration {
-            position: absolute;
-            z-index: -1;
-            opacity: 0.1;
-        }
-        
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 50px solid transparent;
-            border-right: 50px solid transparent;
-            border-bottom: 80px solid rgba(255,255,255,0.1);
-            bottom: 20%;
-            left: 5%;
-            transform: rotate(45deg);
-        }
-        
-        /* 二维码弹窗样式 */
-        .qrcode-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: fadeIn 0.3s ease-out;
-        }
-        
-        .qrcode-content {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            width: 85%;
-            max-width: 320px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-        
-        .qrcode-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 24px;
-            color: #999;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .qrcode-image {
-            width: 100%;
-            margin: 15px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .qrcode-image img {
-            width: 100%;
-            display: block;
-        }
-        
-        .qrcode-guide {
-            color: #333;
-            font-size: 16px;
-            margin: 15px 0;
-            font-weight: 500;
-        }
-        
-        .qrcode-tip {
-            color: #666;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        
-        .qrcode-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        /* 波纹效果 */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-        }
-        
-        @keyframes ripple {
-            to {
-                transform: scale(2.5);
-                opacity: 0;
-            }
-        }
+        /* 保留所有原有样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { background: linear-gradient(135deg, #1a6dcc 0%, #0d4a9e 100%); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; min-height: 100vh; padding: 20px; display: flex; justify-content: center; align-items: center; -webkit-overflow-scrolling: touch; }
+        .container { width: 100%; max-width: 480px; text-align: center; animation: fadeIn 0.8s ease-out; display: flex; flex-direction: column; min-height: 100vh; }
+        .header { margin-bottom: 10px; position: relative; }
+        .logo { width: 90px; height: 90px; background: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.25); transition: transform 0.3s ease; }
+        .logo:hover { transform: scale(1.05); }
+        h1 { color: white; font-size: 26px; font-weight: 600; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,0,0,0.25); margin-bottom: 8px; }
+        .subtitle { color: rgba(255, 255, 255, 0.85); font-size: 15px; max-width: 300px; margin: 0 auto; line-height: 1.5; }
+        .apps { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; flex: 1; }
+        .app-btn { display: flex; align-items: center; background: white; border-radius: 18px; padding: 22px; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; border: 2px solid transparent; position: relative; overflow: hidden; animation: slideUp 0.6s ease-out; }
+        .app-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0)); opacity: 0; transition: opacity 0.3s; }
+        .app-btn:hover::before { opacity: 1; }
+        .app-btn:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
+        .app-btn:active { transform: translateY(0); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .app-btn:nth-child(1) { animation-delay: 0.1s; }
+        .app-btn:nth-child(2) { animation-delay: 0.2s; }
+        .app-btn:nth-child(3) { animation-delay: 0.3s; }
+        .app-btn:nth-child(4) { animation-delay: 0.4s; }
+        .icon { width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-right: 22px; font-size: 30px; color: white; position: relative; z-index: 2; }
+        .manual .icon { background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%); }
+        .patient-guide .icon { background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%); }
+        .feedback .icon { background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); }
+        .wechat .icon { background: linear-gradient(135deg, #09BB07 0%, #2BAE66 100%); }
+        .text { flex: 1; text-align: left; position: relative; z-index: 2; }
+        .title { font-size: 21px; font-weight: bold; color: #2c3e50; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .desc { font-size: 15px; color: #666; line-height: 1.5; }
+        .arrow { width: 26px; height: 26px; color: #999; position: relative; z-index: 2; }
+        footer { margin-top: 30px; color: rgba(255,255,255,0.8); font-size: 13px; padding: 15px 0; position: relative; }
+        footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 3px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+        .footer-info { margin-top: 5px; padding: 2px 0; text-align: center; }
+        .contact-info { font-size: 14px; color: rgba(255,255,255,0.9); margin-bottom: 8px; font-weight: 500; }
+        .department-info { font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 300; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 480px) { .container { padding: 10px; } .logo { width: 80px; height: 80px; } h1 { font-size: 22px; } .app-btn { padding: 18px; } .icon { width: 55px; height: 55px; font-size: 24px; margin-right: 15px; } .title { font-size: 18px; } .desc { font-size: 14px; } .apps { gap: 12px; } .contact-info { font-size: 13px; } .department-info { font-size: 11px; } }
+        .wechat-optimized { -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+        .decoration { position: absolute; z-index: -1; opacity: 0.1; }
+        .triangle { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 80px solid rgba(255,255,255,0.1); bottom: 20%; left: 5%; transform: rotate(45deg); }
+        .qrcode-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; flex-direction: column; animation: fadeIn 0.3s ease-out; }
+        .qrcode-content { background: white; border-radius: 20px; padding: 30px; width: 85%; max-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); position: relative; }
+        .qrcode-close { position: absolute; top: 15px; right: 15px; font-size: 24px; color: #999; background: none; border: none; cursor: pointer; }
+        .qrcode-image { width: 100%; margin: 15px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+        .qrcode-image img { width: 100%; display: block; }
+        .qrcode-guide { color: #333; font-size: 16px; margin: 15px 0; font-weight: 500; }
+        .qrcode-tip { color: #666; font-size: 14px; margin-top: 10px; }
+        .qrcode-title { font-size: 20px; font-weight: bold; color: #2c3e50; margin-bottom: 10px; }
+        .ripple { position: absolute; border-radius: 50%; background: rgba(255, 255, 255, 0.4); transform: scale(0); animation: ripple 0.6s linear; }
+        @keyframes ripple { to { transform: scale(2.5); opacity: 0; } }
     </style>
 </head>
 <body class="wechat-optimized">
@@ -421,33 +70,34 @@
     <div class="decoration triangle"></div>
     
     <div class="container">
-<div id="starTip" style="width:100%;background:#FFF9C4;color:#333;font-size:14px;line-height:1.4;padding:8px 12px;text-align:center;box-sizing:border-box;">
-  点击右上角「⋯」→ <span style="color:#1E90FF;font-size:16px;">☆</span> 星标收藏，返回微信点击左上角<span style="color:#000;font-size:16px;">☆</span> 即可直达本页，方便下次使用。
+        <!-- 顶部免责声明 -->
+        <div style="background:#fff3cd;color:#856404;padding:12px;margin-bottom:15px;border-radius:10px;font-size:14px;font-weight:bold;text-align:center;">
+            ⚠️ 免责声明：本站内容为个人整理，不构成任何医疗建议。 点击右上角「⋯」→ <span style="color:#1E90FF;font-size:16px;">☆</span> 星标收藏，返回微信点击左上角<span style="color:#000;font-size:16px;">☆</span> 即可直达本页，方便下次使用。
+
   <span id="closeStar" style="margin-left:6px;cursor:pointer;font-size:12px;">✕</span>
 </div>
-
 <script>
 document.getElementById('closeStar').onclick = function () {
   document.getElementById('starTip').style.display = 'none';
 };
 </script>
+        
         <div class="header">
             <div class="logo">
                 <i class="fas fa-flask"></i>
             </div>
-            <h1>广中医检验科服务导航</h1>
-            <p class="subtitle">（东葛院区适用）</p>
-            <p class="subtitle">专业检验服务指引，保障患者健康权益</p>
+            <h1>GZY东葛检验指南</h1>
+            <p class="subtitle">基于公开资料整理的学习材料</p>
         </div>
         
         <div class="apps">
-            <!-- 临床采集手册（医护） -->
+            <!-- 采集查询 -->
             <a href="https://www.kdocs.cn/etapps/query/q/Hbcp5W1Z" class="app-btn manual" id="manualBtn">
                 <div class="icon">
                     <i class="fas fa-book-medical"></i>
                 </div>
                 <div class="text">
-                    <div class="title">医护查询</div>
+                    <div class="title">采集查询</div>
                     <div class="desc">标本采集规范与注意事项</div>
                 </div>
                 <div class="arrow">
@@ -455,13 +105,13 @@ document.getElementById('closeStar').onclick = function () {
                 </div>
             </a>
             
-            <!-- 患者检验须知手册 -->
+            <!-- 检验知识查询 -->
             <a href="https://www.kdocs.cn/etapps/query/q/blb4OBS7" class="app-btn patient-guide" id="patientGuideBtn">
                 <div class="icon">
                     <i class="fas fa-file-medical-alt"></i>
                 </div>
                 <div class="text">
-                    <div class="title">患者查询</div>
+                    <div class="title">检验知识查询</div>
                     <div class="desc">项目介绍与标本留取指引</div>
                 </div>
                 <div class="arrow">
@@ -469,42 +119,42 @@ document.getElementById('closeStar').onclick = function () {
                 </div>
             </a>
 
-            <!-- 检验服务反馈入口 -->
-            <a href="https://f.wps.cn/g/CIuGz4q1  " class="app-btn feedback" id="feedbackBtn">
+            <!-- 意见反馈通道 -->
+            <a href="https://f.wps.cn/g/CIuGz4q1" class="app-btn feedback" id="feedbackBtn">
                 <div class="icon">
                     <i class="fas fa-comment-medical"></i>
                 </div>
                 <div class="text">
-                    <div class="title">检验服务反馈入口</div>
-                    <div class="desc">意见反馈与投诉建议通道</div>
+                    <div class="title">意见反馈通道</div>
+                    <div class="desc">交流与建议通道</div>
                 </div>
                 <div class="arrow">
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </a>
            
-            <!-- 医院公众号入口 - 修改为触发二维码弹窗 -->
+            <!-- 公众号推荐 -->
             <div class="app-btn wechat" id="wechatBtn">
                 <div class="icon">
                     <i class="fab fa-weixin"></i>
                 </div>
                 <div class="text">
-                    <div class="title">医院公众号入口</div>
-                    <div class="desc">查询检验报告与医院资讯</div>
+                    <div class="title">公众号推荐</div>
+                    <div class="desc">推荐关注相关医学公众号</div>
                 </div>
                 <div class="arrow">
                     <i class="fas fa-qrcode"></i>
                 </div>
          </div>    
+        
         <footer>
             <div class="footer-info">
-                <div class="contact-info">如有疑问欢迎致电检验科0771-5848697咨询</div>
+                <div class="contact-info">如有疑问，欢迎致电咨询</div>
 <!-- 不蒜子统计 - 总浏览次数 -->
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_site_pv">本站累计访问量<span id="busuanzi_value_site_pv"></span> 次</span>
-<div class="department-info">广西中医药大学第一附属医院东葛检验科制定</div>   
-            </div>
-        </footer>
+<div class="department-info">东葛检验知识库整理</div>        
+</footer>
     </div>
 
     <!-- 二维码弹窗 -->
@@ -513,12 +163,12 @@ document.getElementById('closeStar').onclick = function () {
             <button class="qrcode-close" id="closeQrcode">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="qrcode-title">关注医院公众号</div>
+            <div class="qrcode-title">推荐关注</div>
             <div class="qrcode-image">
-                <img src="gh_qr.png " alt="医院公众号二维码">
+                <img src="gh_qr.png" alt="推荐公众号二维码">
             </div>
-            <div class="qrcode-guide">长按二维码识别关注</div>
-            <div class="qrcode-tip">关注后可查询检验报告与医院最新资讯</div>
+            <div class="qrcode-guide">扫描二维码可关注相关公众号</div>
+            <div class="qrcode-tip">获取更多资讯</div>
         </div>
     </div>
 
@@ -607,7 +257,6 @@ document.getElementById('closeStar').onclick = function () {
     </script>
 </body>
 </html>
-
 
 
 
